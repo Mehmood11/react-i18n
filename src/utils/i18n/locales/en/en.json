@@ -1,0 +1,6 @@
+{
+  "myName": "Hello Mehmood Khan",
+  "notification_one": "You have {{count}} Notification",
+  "notification_other": "You have {{count}} Notifications",
+  "intro": "My name is <bold>Mehmood Khan</bold>, and I am <italic>Front end Developer</italic>."
+}

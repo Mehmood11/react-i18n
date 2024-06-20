@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Trans, useTranslation } from "react-i18next";
 
 function App() {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{t("myName")}</h1>
+      <h4>
+        {/* That's how we pass the singular or plural value. */}
+        {t("notification", {
+          count: 2,
+        })}
+      </h4>
+      <Trans i18nKey="intro" components={{ bold: <b />, italic: <i /> }} />
+
+      <div>
+        <button onClick={() => changeLanguage("en")}>English</button>
+        <button onClick={() => changeLanguage("fr")}>Français</button>
+      </div>
     </div>
   );
 }
